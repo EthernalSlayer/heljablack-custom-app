@@ -2,7 +2,10 @@
   <TheHeader />
   <div id="nav">
     <AppLink to="/">Home</AppLink> |
-    <AppLink to="/about">About</AppLink>
+    <AppLink :to="{ name: 'ShoesCustom' }">Shoes Custom</AppLink> |
+    <AppLink :to="{ name: 'ShoesCollection' }">Shoes Collection</AppLink> |
+    <AppLink :to="{ name: 'Skate' }">Skate</AppLink> |
+    <AppLink :to="{ name: 'Prints' }">Prints</AppLink>
   </div>
   <router-view />
 </template>
@@ -15,4 +18,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.active-link {
+  color: red;
+  opacity: 1;
+}
+</style>
