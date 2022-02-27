@@ -1,8 +1,8 @@
 <template>
   <TheHeader />
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <AppLink to="/">Home</AppLink> |
+    <AppLink to="/about">About</AppLink>
   </div>
   <router-view />
 </template>
