@@ -26,3 +26,18 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+a.router-link-exact-active {
+  color: #ffd700;
+}
+</style>

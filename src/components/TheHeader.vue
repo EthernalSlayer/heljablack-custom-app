@@ -1,6 +1,6 @@
 <template>
   <div class="header-container">
-    <div class="icon-container">
+    <div class="icon-container" @click="select">
       <img
         class="burger-icon"
         src="@/assets/burger-icon.svg"
@@ -19,7 +19,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    select() {
+      this.$emit("burger-toggle");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -31,6 +37,8 @@ export default {};
   align-items: center;
   background-color: #000;
   box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 890px) {
