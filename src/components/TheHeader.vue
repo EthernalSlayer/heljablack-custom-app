@@ -42,6 +42,10 @@ export default {
 }
 
 @media (max-width: 890px) {
+  .header-container {
+    height: 80px;
+  }
+
   .shopTitle {
     display: none;
   }

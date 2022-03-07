@@ -9,10 +9,14 @@
           shoes
           <ul class="list" v-show="shoesOpen">
             <li class="sublist-item">
-              <AppLink :to="{ name: 'ShoesCustom' }">custom</AppLink>
+              <AppLink :to="{ name: 'ShoesCustom' }" @click="autoClose"
+                >custom</AppLink
+              >
             </li>
             <li class="sublist-item">
-              <AppLink :to="{ name: 'ShoesCollection' }">collection</AppLink>
+              <AppLink :to="{ name: 'ShoesCollection' }" @click="autoClose"
+                >collection</AppLink
+              >
             </li>
           </ul>
         </li>
@@ -28,12 +32,17 @@
         <li class="list-item">payment</li>
         <li class="list-item">envoi</li>
       </ul>
-      <img
-        class="instagram-icon"
-        src="@/assets/instagram-icon.svg"
-        alt="instagram icon"
-        height="80"
-      />
+      <AppLink
+        class="insta-logo-container"
+        to="https://www.instagram.com/heljablack/"
+      >
+        <img
+          class="instagram-icon"
+          src="@/assets/instagram-icon.svg"
+          alt="instagram icon"
+          height="80"
+        />
+      </AppLink>
       <p class="signature">Made by EthernalSlayer</p>
     </div>
     <div class="burger-menu-overlay" @click="overlayClick"></div>
@@ -70,8 +79,8 @@ export default {
 }
 
 .burger-menu-container {
-  width: 25%;
-  height: 100vh;
+  width: 32%;
+  height: 110vh;
   background: #373737;
   display: flex;
   flex-direction: column;
@@ -94,10 +103,15 @@ export default {
 
 .list-item {
   margin: 30px 0;
+  cursor: pointer;
 }
 
 .sublist-item {
   margin: 10px 0;
+}
+
+.insta-logo-container {
+  align-self: center;
 }
 
 .instagram-icon {
@@ -110,5 +124,12 @@ export default {
   font-size: 24px;
   font-family: Roboto;
   margin-top: 70px;
+}
+
+@media (max-width: 890px) {
+  .burger-menu-container {
+    width: 150%;
+    height: 150vh;
+  }
 }
 </style>
