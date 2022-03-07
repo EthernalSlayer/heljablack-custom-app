@@ -9,15 +9,17 @@
     <TheSidebar class="desktop-sidebar" />
     <router-view />
   </div>
+  <TheFooter class="mobile-footer-bar" />
 </template>
 
 <script>
 import TheHeader from "@/components/TheHeader.vue";
 import TheBurgerMenu from "@/components/TheBurgerMenu.vue";
 import TheSidebar from "@/components/TheSidebar.vue";
+import TheFooter from "@/components/TheFooter.vue";
 
 export default {
-  components: { TheHeader, TheBurgerMenu, TheSidebar },
+  components: { TheHeader, TheBurgerMenu, TheSidebar, TheFooter },
   data() {
     return {
       burgerOpen: false,
@@ -50,6 +52,12 @@ export default {
 
 @media (max-width: 890px) {
   .desktop-sidebar {
+    display: none;
+  }
+}
+
+@media (min-width: 891px) {
+  .mobile-footer-bar {
     display: none;
   }
 }
