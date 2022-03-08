@@ -2,8 +2,23 @@
     "realisations": [
         {
             "id": 1,
-            "name": "test",
-            "image": "test.webp"
+            "name": "shoes-1",
+            "image": "hel-slipon-1.webp"
+        },
+        {
+            "id": 2,
+            "name": "skate-1",
+            "image": "hel-skate-1.webp"
+        },
+        {
+            "id": 3,
+            "name": "print-1",
+            "image": "hel-print-1.webp"
+        },
+        {
+            "id": 4,
+            "name": "print-2",
+            "image": "hel-print-2.webp"
         }
     ]
 }

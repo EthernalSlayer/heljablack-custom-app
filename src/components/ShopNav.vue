@@ -50,9 +50,10 @@ export default {
 
 <style scoped>
 .sidebar-container {
-  height: 89vh;
+  height: 100vh;
   width: 30%;
   position: sticky;
+  top: 0px;
   background-color: #000;
 }
 
@@ -118,6 +119,7 @@ h2 {
   .sidebar-container {
     width: 100%;
     height: 73vh;
+    position: relative;
   }
 }
 </style>
