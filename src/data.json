@@ -20,5 +20,33 @@
             "name": "print-2",
             "image": "hel-print-2.webp"
         }
+    ],
+    "shoesModels": [
+        {"id": 1, "name": "SLIP ON"},
+        {"id": 2, "name": "SK8-HI"},
+        {"id": 3, "name": "ERA"},
+        {"id": 4, "name": "OLD SKOOL"}
+    ],
+    "shoeSizes": [
+        {"id": 1, "size": 35},
+        {"id": 2, "size": 36},
+        {"id": 3, "size": 36.5},
+        {"id": 4, "size": 37},
+        {"id": 5, "size": 38},
+        {"id": 6, "size": 38.5},
+        {"id": 7, "size": 39},
+        {"id": 8, "size": 40},
+        {"id": 9, "size": 40.5},
+        {"id": 10, "size": 41},
+        {"id": 11, "size": 42},
+        {"id": 12, "size": 42.5},
+        {"id": 13, "size": 43},
+        {"id": 14, "size": 44},
+        {"id": 15, "size": 44.5},
+        {"id": 16, "size": 45},
+        {"id": 17, "size": 46},
+        {"id": 18, "size": 47},
+        {"id": 19, "size": 48},
+        {"id": 20, "size": 49}
     ]
 }
