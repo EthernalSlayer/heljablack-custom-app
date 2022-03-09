@@ -1,53 +1,61 @@
 <template>
   <div class="custom-shoes-view">
     <h3 class="custom-shoes-title">Custom Shoes</h3>
-    <form class="custom-shoes-form">
+    <form class="custom-shoes-form" @submit.prevent="submitForm">
       <div class="name-form-group">
-        <label class="form-label" for="lastName">nom :</label>
-        <input
-          class="text-input"
-          type="text"
-          id="lastName"
-          v-model="form.nom"
-          placeholder="nom"
-          required
-        />
-        <label class="form-label" for="firstName">prenom :</label>
-        <input
-          class="text-input"
-          type="text"
-          id="firstName"
-          v-model="form.prenom"
-          placeholder="prénom"
-          required
-        />
+        <div class="text-form-group">
+          <label class="form-label" for="lastName">nom :</label>
+          <input
+            class="text-input"
+            type="text"
+            id="lastName"
+            v-model="form.nom"
+            placeholder="nom"
+            required
+          />
+        </div>
+        <div class="text-form-group">
+          <label class="form-label" for="firstName">prenom :</label>
+          <input
+            class="text-input"
+            type="text"
+            id="firstName"
+            v-model="form.prenom"
+            placeholder="prénom"
+            required
+          />
+        </div>
       </div>
       <div class="mail-form-group">
-        <label class="form-label" for="mail">mail :</label>
-        <input
-          class="text-input"
-          type="text"
-          id="mail"
-          v-model="form.email"
-          placeholder="adresse mail"
-          required
-        />
-        <label class="form-label" for="pointure">pointure :</label>
-        <select
-          class="select-input"
-          name="pointure"
-          id="pointure"
-          v-model="form.size"
-          required
-        >
-          <option
-            v-for="shoesSize in shoeSizes"
-            :key="shoesSize.id"
-            :value="shoesSize.size"
+        <div class="text-form-group">
+          <label class="form-label" for="mail">mail :</label>
+          <input
+            class="text-input"
+            type="text"
+            id="mail"
+            v-model="form.email"
+            placeholder="adresse mail"
+            required
+          />
+        </div>
+        <div class="text-form-group">
+          <label class="form-label" for="pointure">pointure :</label>
+          <select
+            class="select-input"
+            name="pointure"
+            id="pointure"
+            v-model="form.size"
+            required
           >
-            {{ shoesSize.size }}
-          </option>
-        </select>
+            <option
+              v-for="shoesSize in shoeSizes"
+              :key="shoesSize.id"
+              :value="shoesSize.size"
+            >
+              {{ shoesSize.size }}
+            </option>
+          </select>
+        </div>
       </div>
       <div class="model-form-group">
         <p class="form-label-model">modèle :</p>
@@ -65,7 +73,8 @@
               name="model"
               :id="shoesModel.name"
               required
-            /><span class="radio-button">{{ shoesModel.name }}</span>
+            />
+            <div class="radio-button">{{ shoesModel.name }}</div>
           </label>
         </div>
       </div>
@@ -91,6 +100,7 @@
 
 <script>
 import sourceData from "@/data.json";
+import axios from "axios";
 
 export default {
   data() {
@@ -106,6 +116,18 @@ export default {
       shoesModels: sourceData.shoesModels,
       shoeSizes: sourceData.shoeSizes,
     };
+  },
+  methods: {
+    submitForm() {
+      console.log(this.form);
+      axios
+        .post(
+          "https://heljablack-mailer.ethernalslayer.com/shoes/custom",
+          this.form
+        )
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    },
   },
 };
 </script>
@@ -134,6 +156,7 @@ export default {
 .form-label {
   font-family: Roboto;
   font-size: 24px;
+  width: 25%;
 }
 
 .form-label-model {
@@ -156,8 +179,15 @@ export default {
   align-items: baseline;
 }
 
+.text-form-group {
+  width: 50%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+}
+
 .text-input {
-  width: 27%;
+  width: 55%;
   margin: 15px;
   padding: 15px;
   box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
@@ -190,15 +220,17 @@ export default {
 }
 
 .radio-button {
+  width: 120px;
   font-family: Roboto;
   font-size: 22px;
+  text-align: center;
   padding: 10px;
   margin: 15px;
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
 
-.radio-input:checked + span {
+.radio-input:checked + div {
   color: #fff;
   background-color: #000;
 }
@@ -216,7 +248,7 @@ export default {
   border: none;
   padding: 10px;
   margin-top: 50px;
-  margin-bottom: 200px;
+  margin-bottom: 150px;
   font-size: 22px;
   font-family: Roboto;
   font-weight: bold;
@@ -244,26 +276,24 @@ export default {
 
   .name-form-group,
   .mail-form-group {
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  .text-input {
-    width: 80%;
-    margin-left: 50px;
-    margin-right: 50px;
+  .text-form-group {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-label,
+  .form-label-model,
+  .form-label-description {
+    font-size: 21px;
   }
 
   .radio-button-container {
     flex-wrap: wrap;
-    height: 120px;
     justify-content: center;
-    align-content: space-around;
-  }
-
-  .radio-button-label {
-    height: 0px;
-    margin: 0;
-    padding: 0;
   }
 
   .description-text-area {
