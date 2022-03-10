@@ -1,13 +1,24 @@
 <template>
   <div class="container">
     <div class="burger-menu-container">
+      <AppLink
+        class="insta-logo-container"
+        to="https://www.instagram.com/heljablack/"
+      >
+        <img
+          class="instagram-icon"
+          src="@/assets/instagram-icon.svg"
+          alt="instagram icon"
+          height="60"
+        />
+      </AppLink>
       <ul class="list">
         <li class="list-item">
           <AppLink to="/" @click="autoClose">home</AppLink>
         </li>
         <li class="list-item" @click="openShoes">
           shoes
-          <ul class="list" v-show="shoesOpen">
+          <ul class="sublist" v-show="shoesOpen">
             <li class="sublist-item">
               <AppLink :to="{ name: 'ShoesCustom' }" @click="autoClose"
                 >custom</AppLink
@@ -36,17 +47,6 @@
         <li class="list-item">payment</li>
         <li class="list-item">envoi</li>
       </ul>
-      <AppLink
-        class="insta-logo-container"
-        to="https://www.instagram.com/heljablack/"
-      >
-        <img
-          class="instagram-icon"
-          src="@/assets/instagram-icon.svg"
-          alt="instagram icon"
-          height="80"
-        />
-      </AppLink>
       <p class="signature">Made by EthernalSlayer</p>
     </div>
     <div class="burger-menu-overlay" @click="overlayClick"></div>
@@ -78,27 +78,43 @@ export default {
 .container {
   display: flex;
   width: 100%;
-  height: 100vh;
+  min-height: 100%;
+  top: 107px;
+  bottom: 0;
+  right: 0;
+  left: 0;
   position: absolute;
 }
 
 .burger-menu-container {
   width: 32%;
-  height: 110vh;
+  height: 100%;
   background: #373737;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   box-shadow: 4px 0px 4px 2px rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
 
 .burger-menu-overlay {
   width: 75%;
-  height: 100vh;
+  height: 100%;
   background: rgba(255, 255, 255, 0.6);
 }
 
 .list {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  list-style: none;
+  color: #fff;
+  font-size: 24px;
+  font-family: Roboto;
+}
+
+.sublist {
   list-style: none;
   color: #fff;
   font-size: 24px;
@@ -106,12 +122,7 @@ export default {
 }
 
 .list-item {
-  margin: 30px 0;
   cursor: pointer;
-}
-
-.sublist-item {
-  margin: 10px 0;
 }
 
 .insta-logo-container {
@@ -119,7 +130,7 @@ export default {
 }
 
 .instagram-icon {
-  margin: 30px 0;
+  margin-top: 15px;
 }
 
 .signature {
@@ -127,13 +138,17 @@ export default {
   text-align: center;
   font-size: 24px;
   font-family: Roboto;
-  margin-top: 70px;
+  margin-top: 35px;
 }
 
 @media (max-width: 890px) {
+  .container {
+    top: 80px;
+  }
+
   .burger-menu-container {
     width: 150%;
-    height: 150vh;
+    height: 100%;
   }
 }
 </style>

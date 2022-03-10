@@ -28,9 +28,18 @@ export default {
   methods: {
     burgerToggle() {
       this.burgerOpen = !this.burgerOpen;
+      if (this.burgerOpen === true) {
+        const body = document.getElementsByTagName("body");
+        body[0].classList.add("modal-open");
+      } else {
+        const body = document.getElementsByTagName("body");
+        body[0].classList.remove("modal-open");
+      }
     },
     close() {
       this.burgerOpen = false;
+      const body = document.getElementsByTagName("body");
+      body[0].classList.remove("modal-open");
     },
   },
 };

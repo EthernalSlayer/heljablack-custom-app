@@ -23,6 +23,11 @@
   body {
     margin: 0;
   }
+
+  .modal-open {
+    height: 100vh;
+    overflow-y: hidden;
+  }
   
   /**
    * Render the `main` element consistently in IE.
