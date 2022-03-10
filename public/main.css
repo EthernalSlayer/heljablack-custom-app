@@ -28,6 +28,12 @@
     height: 100vh;
     overflow-y: hidden;
   }
+
+  @media (max-width: 890px) {
+    .modal-open {
+      position: fixed;
+    }
+  }
   
   /**
    * Render the `main` element consistently in IE.
