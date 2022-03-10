@@ -6,21 +6,21 @@
       </div>
     </div>
     <ul class="sidebar-subitem-list" v-show="shoesOpen">
-      <AppLink :to="{ name: 'ShoesCustom' }" @click="close">
+      <AppLink :to="{ name: 'ShoesCustom' }" @click="autoClose">
         <li class="sidebar-subitem-list-item">CUSTOM</li>
       </AppLink>
-      <AppLink :to="{ name: 'ShoesCollection' }" @click="close">
+      <AppLink :to="{ name: 'ShoesCollection' }" @click="autoClose">
         <li class="sidebar-subitem-list-item">COLLECTION</li>
       </AppLink>
     </ul>
-    <AppLink :to="{ name: 'Skate' }">
+    <AppLink :to="{ name: 'Skate' }" @click="autoClose">
       <div class="sidebar-item item-2">
         <div class="sidebar-item-text-container">
           <h2>SKATE</h2>
         </div>
       </div>
     </AppLink>
-    <AppLink :to="{ name: 'Prints' }">
+    <AppLink :to="{ name: 'Prints' }" @click="autoClose">
       <div class="sidebar-item item-3">
         <div class="sidebar-item-text-container">
           <h2>PRINT</h2>
@@ -41,8 +41,9 @@ export default {
     shoesToggle() {
       this.shoesOpen = !this.shoesOpen;
     },
-    close() {
+    autoClose() {
       this.shoesOpen = false;
+      this.$emit("auto-close");
     },
   },
 };
@@ -118,7 +119,7 @@ h2 {
 @media (max-width: 890px) {
   .sidebar-container {
     width: 100%;
-    height: 73vh;
+    height: 68vh;
     position: relative;
   }
 }

@@ -143,7 +143,7 @@ export default {
 
 @media (max-width: 890px) {
   .container {
-    top: 80px;
+    top: 70px;
   }
 
   .burger-menu-container {

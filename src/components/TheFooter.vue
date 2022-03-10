@@ -3,7 +3,7 @@
     <div class="arrow-button" @click="shopNavToggle">
       <img src="@/assets/arrow-up.svg" alt="arrow icon" height="35" />
     </div>
-    <ShopNav v-show="shopNavOpen" />
+    <ShopNav v-show="shopNavOpen" v-on:auto-close="close" />
     <div class="shop-bar" @click="shopNavToggle">
       <h2 class="shop-title">SHOP</h2>
     </div>
@@ -24,6 +24,9 @@ export default {
     shopNavToggle() {
       this.shopNavOpen = !this.shopNavOpen;
     },
+    close() {
+      this.shopNavOpen = false;
+    },
   },
 };
 </script>
@@ -41,7 +44,7 @@ export default {
 .shop-bar {
   background-color: #000;
   box-shadow: 0px -4px 4px 4px rgba(0, 0, 0, 0.25);
-  height: 70px;
+  height: 50px;
   width: 100vw;
   display: flex;
   justify-content: center;
