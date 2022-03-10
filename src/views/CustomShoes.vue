@@ -141,7 +141,7 @@ export default {
 }
 
 .custom-shoes-title {
-  widows: 100%;
+  width: 100%;
   font-family: "Megrim", cursive;
   font-size: 40px;
   text-align: center;

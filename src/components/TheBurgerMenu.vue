@@ -28,7 +28,11 @@
         </li>
       </ul>
       <ul class="list">
-        <li class="list-item">politique de confidentialité</li>
+        <li class="list-item">
+          <AppLink :to="{ name: 'Confidentials' }" @click="autoClose"
+            >politique de confidentialité</AppLink
+          >
+        </li>
         <li class="list-item">payment</li>
         <li class="list-item">envoi</li>
       </ul>

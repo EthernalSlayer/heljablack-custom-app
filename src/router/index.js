@@ -11,25 +11,35 @@ const routes = [
     path: "/shoes/custom",
     name: "ShoesCustom",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/CustomShoes.vue"),
+      import(/* webpackChunkName: "shoes-custom" */ "../views/CustomShoes.vue"),
   },
   {
     path: "/shoes/collection",
     name: "ShoesCollection",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/CollectionShoes.vue"),
+      import(
+        /* webpackChunkName: "shoes-collection" */ "../views/CollectionShoes.vue"
+      ),
   },
   {
     path: "/skate",
     name: "Skate",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Skate.vue"),
+      import(/* webpackChunkName: "skate" */ "../views/Skate.vue"),
   },
   {
     path: "/prints",
     name: "Prints",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Prints.vue"),
+      import(/* webpackChunkName: "print" */ "../views/Prints.vue"),
+  },
+  {
+    path: "/rgpd",
+    name: "Confidentials",
+    component: () =>
+      import(
+        /* webpackChunkName: "confidentials" */ "../views/Confidentials.vue"
+      ),
   },
 ];
 
