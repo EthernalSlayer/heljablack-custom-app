@@ -8,13 +8,16 @@
       />
     </div>
     <div class="logo-container">
-      <img
-        class="heljablack-logo"
-        src="@/assets/heljablack-logo-white.svg"
-        alt="heljablack icon"
-      />
+      <AppLink class="shopTitle-container" to="/"
+        ><img
+          class="heljablack-logo"
+          src="@/assets/heljablack-logo-white.svg"
+          alt="heljablack icon"
+      /></AppLink>
     </div>
-    <h1 class="shopTitle">Heljablack Custom</h1>
+    <AppLink class="shopTitle-container" to="/"
+      ><h1 class="shopTitle">Heljablack Custom</h1></AppLink
+    >
   </div>
 </template>
 
@@ -68,6 +71,10 @@ export default {
 @media (min-width: 891px) {
   .heljablack-logo {
     display: none;
+  }
+
+  .shopTitle-container {
+    width: 100%;
   }
 
   .shopTitle {
