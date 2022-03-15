@@ -1,7 +1,12 @@
 <template>
   <div class="footer-container">
     <div class="arrow-button" @click="shopNavToggle">
-      <img src="@/assets/arrow-up.svg" alt="arrow icon" height="35" />
+      <img
+        :class="{ imgReverse: shopNavOpen }"
+        src="@/assets/arrow-up.svg"
+        alt="arrow icon"
+        height="35"
+      />
     </div>
     <Transition>
       <ShopNav v-show="shopNavOpen" v-on:auto-close="close" />
@@ -72,6 +77,10 @@ export default {
   border-top-right-radius: 70px;
 }
 
+.imgReverse {
+  transform: rotate(180deg);
+}
+
 .v-enter-active {
   animation: myAnim 0.5s;
 }
@@ -82,10 +91,12 @@ export default {
 @keyframes myAnim {
   0% {
     opacity: 0;
+    transform: translateY(250px);
   }
 
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
