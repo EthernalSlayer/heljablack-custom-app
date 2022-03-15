@@ -1,10 +1,12 @@
 <template>
   <TheHeader v-on:burger-toggle="burgerToggle" />
-  <TheBurgerMenu
-    v-show="burgerOpen"
-    v-on:auto-close="close"
-    v-on:burger-close="burgerToggle"
-  />
+  <Transition name="slidein">
+    <TheBurgerMenu
+      v-show="burgerOpen"
+      v-on:auto-close="close"
+      v-on:burger-close="burgerToggle"
+    />
+  </Transition>
   <div class="main-container">
     <TheSidebar class="desktop-sidebar" />
     <router-view />
@@ -57,6 +59,21 @@ export default {
 
 .main-container {
   display: flex;
+}
+
+.slidein-enter-active {
+  animation: slide-in 0.2s;
+}
+.slidein-leave-active {
+  animation: slide-in 0.2s reverse;
+}
+@keyframes slide-in {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 @media (max-width: 890px) {
