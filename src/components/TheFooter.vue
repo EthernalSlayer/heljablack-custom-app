@@ -3,7 +3,9 @@
     <div class="arrow-button" @click="shopNavToggle">
       <img src="@/assets/arrow-up.svg" alt="arrow icon" height="35" />
     </div>
-    <ShopNav v-show="shopNavOpen" v-on:auto-close="close" />
+    <Transition>
+      <ShopNav v-show="shopNavOpen" v-on:auto-close="close" />
+    </Transition>
     <div class="shop-bar" @click="shopNavToggle">
       <h2 class="shop-title">SHOP</h2>
     </div>
@@ -68,5 +70,22 @@ export default {
   align-items: flex-end;
   border-top-left-radius: 70px;
   border-top-right-radius: 70px;
+}
+
+.v-enter-active {
+  animation: myAnim 0.5s;
+}
+.v-leave-active {
+  animation: myAnim 0.2s reverse;
+}
+
+@keyframes myAnim {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 </style>

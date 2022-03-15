@@ -15,9 +15,9 @@
           alt="heljablack icon"
       /></AppLink>
     </div>
-    <AppLink class="shopTitle-container" to="/"
-      ><h1 class="shopTitle">Heljablack Custom</h1></AppLink
-    >
+    <h1 class="shopTitle">
+      <AppLink class="shopTitle-container" to="/">Heljablack Custom</AppLink>
+    </h1>
   </div>
 </template>
 
@@ -77,6 +77,10 @@ export default {
     width: 100%;
   }
 
+  .shopTitle-container.router-link-exact-active {
+    color: #fff;
+  }
+
   .shopTitle {
     width: 100%;
     font-family: "Megrim", cursive;
@@ -92,6 +96,10 @@ export default {
 
   .burger-icon {
     margin-left: 10px;
+  }
+
+  .burger-icon:hover {
+    cursor: pointer;
   }
 }
 </style>
