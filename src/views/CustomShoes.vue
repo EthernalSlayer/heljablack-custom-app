@@ -204,6 +204,10 @@ export default {
   border: none;
 }
 
+.select-input:hover {
+  cursor: pointer;
+}
+
 .model-form-group,
 .description-form-group {
   display: flex;
@@ -230,6 +234,15 @@ export default {
   border-radius: 10px;
 }
 
+.radio-button:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.radio-button-label:hover {
+  cursor: pointer;
+}
+
 .radio-input:checked + div {
   color: #fff;
   background-color: #000;
@@ -253,6 +266,11 @@ export default {
   font-family: Roboto;
   font-weight: bold;
   color: #fff;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  border: 1px #fff solid;
 }
 
 .description-text-area {
