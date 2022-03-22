@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <ShopDescription />
     <h3 class="gallery-title">Mes Créations</h3>
     <div class="gallery-card-container">
       <img
@@ -15,8 +16,10 @@
 
 <script>
 import sourceData from "@/data.json";
+import ShopDescription from "@/components/ShopDescription.vue";
 
 export default {
+  components: { ShopDescription },
   data() {
     return {
       realisations: sourceData.realisations,
