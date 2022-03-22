@@ -1,7 +1,10 @@
 <template>
   <div class="sidebar-container">
     <div class="sidebar-item item-1">
-      <div class="sidebar-item-text-container" @click="shoesToggle">
+      <div
+        class="sidebar-item-text-container sidebar-shoes-item-container"
+        @click="shoesToggle"
+      >
         <h2>SHOES</h2>
       </div>
     </div>
@@ -50,6 +53,10 @@ export default {
 </script>
 
 <style scoped>
+.sidebar-shoes-item-container:hover {
+  cursor: pointer;
+}
+
 .sidebar-container {
   height: 100vh;
   width: 30%;
