@@ -21,6 +21,20 @@
             "image": "hel-print-2.webp"
         }
     ],
+    "prints": [
+        {
+            "id": 1,
+            "name": "hannya mask",
+            "image": "hannya-print.webp",
+            "price": 20
+        },
+        {
+            "id": 2,
+            "name": "alphabet",
+            "image": "alphabet-print.webp",
+            "price": 20
+        }
+    ],
     "shoesModels": [
         {"id": 1, "name": "SLIP ON"},
         {"id": 2, "name": "SK8-HI"},
