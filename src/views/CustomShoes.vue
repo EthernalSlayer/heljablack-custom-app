@@ -119,7 +119,6 @@ export default {
   },
   methods: {
     submitForm() {
-      console.log(this.form);
       axios
         .post(
           "https://heljablack-mailer.ethernalslayer.com/shoes/custom",
@@ -127,6 +126,14 @@ export default {
         )
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
+      this.form = {
+        nom: "",
+        prenom: "",
+        email: "",
+        size: "",
+        model: "",
+        description: "",
+      };
     },
   },
 };
