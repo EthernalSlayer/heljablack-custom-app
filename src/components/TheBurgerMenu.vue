@@ -44,8 +44,14 @@
             >politique de confidentialité</AppLink
           >
         </li>
-        <li class="list-item">payment</li>
-        <li class="list-item">envoi</li>
+        <li class="list-item">
+          <AppLink :to="{ name: 'Payment' }" @click="autoClose"
+            >payment</AppLink
+          >
+        </li>
+        <li class="list-item">
+          <AppLink :to="{ name: 'Shipping' }" @click="autoClose">envoi</AppLink>
+        </li>
       </ul>
       <p class="signature">Made by EthernalSlayer</p>
     </div>

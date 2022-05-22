@@ -41,6 +41,22 @@ const routes = [
         /* webpackChunkName: "confidentials" */ "../views/Confidentials.vue"
       ),
   },
+  {
+    path: "/payment",
+    name: "Payment",
+    component: () =>
+      import(
+        /* webpackChunkName: "confidentials" */ "../views/PaymentRules.vue"
+      ),
+  },
+  {
+    path: "/shipping",
+    name: "Shipping",
+    component: () =>
+      import(
+        /* webpackChunkName: "confidentials" */ "../views/ShippingRules.vue"
+      ),
+  },
 ];
 
 const router = createRouter({
