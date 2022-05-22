@@ -139,7 +139,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .custom-shoes-view {
   width: 70%;
   display: flex;
