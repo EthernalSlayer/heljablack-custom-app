@@ -71,7 +71,7 @@
 
 <script>
 import sourceData from "@/data.json";
-import axios from "axios";
+import emailjs from "@emailjs/browser";
 
 export default {
   data() {
@@ -108,10 +108,31 @@ export default {
       }
     },
     submitForm() {
-      axios
-        .post("https://heljablack-mailer.ethernalslayer.com/prints", this.order)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+      emailjs
+        .send(
+          process.env.VUE_APP_SERVICE_ID,
+          process.env.VUE_APP_TEMPLATE_2,
+          this.order,
+          process.env.VUE_APP_PUBLIC_KEY
+        )
+        .then(
+          (result) => {
+            this.$toast.success("email envoyer", {
+              position: "top-right",
+              duration: 3077,
+              max: 1,
+            });
+            console.log("SUCCESS!", result.text);
+          },
+          (error) => {
+            this.$toast.error("echec de l'envoi", {
+              position: "top-right",
+              duration: 3077,
+              max: 1,
+            });
+            console.log("FAILED...", error.text);
+          }
+        );
       this.form = {
         nom: "",
         prenom: "",

@@ -1,7 +1,7 @@
 <template>
   <div class="custom-shoes-view">
     <h3 class="custom-shoes-title">Custom Shoes</h3>
-    <form class="custom-shoes-form" @submit.prevent="submitForm">
+    <form class="custom-shoes-form" ref="form" @submit.prevent="submitForm">
       <div class="name-form-group">
         <div class="text-form-group">
           <label class="form-label" for="lastName">nom :</label>
@@ -9,6 +9,7 @@
             class="text-input"
             type="text"
             id="lastName"
+            name="nom"
             v-model="form.nom"
             placeholder="nom"
             required
@@ -20,6 +21,7 @@
             class="text-input"
             type="text"
             id="firstName"
+            name="prenom"
             v-model="form.prenom"
             placeholder="prénom"
             required
@@ -33,6 +35,7 @@
             class="text-input"
             type="text"
             id="mail"
+            name="email"
             v-model="form.email"
             placeholder="adresse mail"
             required
@@ -100,7 +103,7 @@
 
 <script>
 import sourceData from "@/data.json";
-import axios from "axios";
+import emailjs from "@emailjs/browser";
 
 export default {
   data() {
@@ -119,13 +122,31 @@ export default {
   },
   methods: {
     submitForm() {
-      axios
-        .post(
-          "https://heljablack-mailer.ethernalslayer.com/shoes/custom",
-          this.form
+      emailjs
+        .sendForm(
+          process.env.VUE_APP_SERVICE_ID,
+          process.env.VUE_APP_TEMPLATE_1,
+          this.$refs.form,
+          process.env.VUE_APP_PUBLIC_KEY
         )
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+        .then(
+          (result) => {
+            this.$toast.success("email envoyer", {
+              position: "top-right",
+              duration: 3077,
+              max: 1,
+            });
+            console.log("SUCCESS!", result.text);
+          },
+          (error) => {
+            this.$toast.error("echec de l'envoi", {
+              position: "top-right",
+              duration: 3077,
+              max: 1,
+            });
+            console.log("FAILED...", error.text);
+          }
+        );
       this.form = {
         nom: "",
         prenom: "",
